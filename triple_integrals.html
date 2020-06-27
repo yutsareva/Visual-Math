@@ -1,0 +1,393 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VisualMath</title>
+
+    <link rel='stylesheet' href='css/eulerface_layout.css' media='screen'/>
+    <link rel='stylesheet' href='css/new_styles.css' media='screen'/>
+    <link rel='stylesheet' href='css/g_style.css' media='screen'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+
+</head>
+
+<body lang='ru'>
+<header id="header_">
+    <div id="header-system-btn" class="btn header-btn shadow header-btn-big">Система координат</div>
+    <div id="header-dataList-btn" class="btn header-btn shadow-left header-btn-narrow">▼</div>
+    <div class='problem' id='header-problem-0' style='display:none'>
+        <div class="formula"> $x = z^2+x^2, \ 2x = z^2+x^2, \ y = 3-z^2-x^2$</div>
+        <div class="formula"> $y = 0, \ x = z, \ x = -z$</div>
+    </div>
+    <div class='problem' id='header-problem-1' style='display:none'>
+        <div class="formula"> $0 \leq (x^2+y^2+z^2)^3 = a^3xyz $</div>
+    </div>
+    <div class='problem' id='header-problem-2' class="active-header">
+        <div class="formula"> $z = 6 - x^2 - y^2$</div>
+        <div class="formula"> $z = \sqrt{x^2+y^2}$</div>
+    </div>
+    <div class='problem' id='header-problem-3' style='display:none'>
+        <div class="formula"> $x^2 + y^2 + z^2 = 2az$</div>
+        <div class="formula"> $x^2 + y^2 \leq z^2$</div>
+    </div>
+    <div class='problem' id='header-problem-4' style='display:none'>
+        <div class="formula"> $x^2 + y^2 + z^2 = a^2, \ \ x^2 + y^2 + z^2 = b^2$</div>
+        <div class="formula"> $x^2 + y^2 = z^2$</div>
+    </div>
+    <div class='problem' id='header-problem-5' style='display:none'>
+        <div class="formula"> $(x^2 + y^2 + z^2)^n = |x|^{2n-1} $</div>
+        <div class="formula"> $n \in \mathbb{N} $</div>
+    </div>
+    <div class='problem' id='header-problem-6' style='display:none'>
+        <div class="formula"> $z = x^2 + y^2, \ z = 2(x^2 + y^2)$</div>
+        <div class="formula"> $y = x,\ y = 2x,\ z = h, \ x > 0, y > 0, z > 0$</div>
+    </div>
+    <div class='problem' id='header-problem-7' style='display:none'>
+        <div class="formula"> $x^2 + y^2 + z^2 = a^2$</div>
+        <div class="formula"> $x = 0, y = 0, z = 0$</div>
+    </div>
+    <div class="two_buttons">
+        <div id="header-confines" class="btn header-btn header-btn-small shadow">Ограничения</div>
+        <div id="header-play" class="btn header-btn header-btn-small shadow">Поворот</div>
+    </div>
+    <div class="two_buttons">
+        <div id="header-solution" class="btn header-btn header-btn-small shadow">Решение</div>
+        <div id="header-parameters-btn" class="btn header-btn header-btn-small shadow">Параметры</div>
+    </div>
+</header>
+
+<main>
+    <div id="dataList-panel" class="panel panel-middle" style='display:none'>
+        <ul id="dataList">
+            <li class=''>
+                <div class='panel-problem' id='panel-problem-0'>
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br> $x = z^2+x^2, \ 2x = z^2+x^2, \ y = 3-z^2-x^2$
+                    <br> $y = 0, \ x = z, \ x = -z$
+                </div>
+            </li>
+            <li class=''>
+                <div class='panel-problem' id='panel-problem-1'>
+                    <div align="left">Тело, ограниченное поверхностью:</div>
+                    <br> $0 \leq (x^2+y^2+z^2)^3 = a^3xyz $
+                </div>
+            </li>
+            <li class='active'>
+                <div class='panel-problem' id='panel-problem-2'>
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br>$ z = 6 - x^2 - y^2 $
+                    <br>$ z = \sqrt{x^2+y^2} $
+                </div>
+            </li>
+            <li class=''>
+                <div class='panel-problem' id='panel-problem-3'>
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br>$ x^2 + y^2 + z^2 = 2az $
+                    <br>$ x^2 + y^2 \leq z^2 $
+                </div>
+            </li>
+            <li class=''>
+                <div class='panel-problem' id='panel-problem-4'>
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br>$ x^2 + y^2 + z^2 = a^2, \ \ x^2 + y^2 + z^2 = b^2 $
+                    <br>$ x^2 + y^2 = z^2 $
+                </div>
+            </li>
+            <li class=''>
+                <div class='panel-problem' id='panel-problem-5'>
+                    <div align="left">Тело, ограниченное поверхностью:</div>
+                    <br> $(x^2 + y^2 + z^2)^n = |x|^{2n-1} $
+                    <br> $n \in \mathbb{N} $
+                </div>
+            </li>
+            <li class=''>
+                <div class='panel-problem' id='panel-problem-6'>
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br> $z = x^2 + y^2$
+                    <br> $z = 2(x^2 + y^2)$
+                    <br> $y = x,\ y = 2x,\ z = h$
+                    <br> $x > 0, y > 0, z > 0$
+                </div>
+            </li>
+            <li class=''>
+                <div class='panel-problem' id='panel-problem-7'>
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br> $x^2 + y^2 + z^2 = a^2$
+                    <br> $x = 0, y = 0, z = 0$
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div id="systems-panel" class="panel-left" style='display:none'>
+
+        <div id='two_systems' class='btn panel-btn shadow'> Две системы
+        </div>
+        <div id='first' class='btn panel-btn shadow'> Декартова система
+        </div>
+        <div id='second' class='btn panel-btn shadow'> Цилиндрическая система
+        </div>
+        <div id='third' class='btn panel-btn shadow' style="display: none">
+        </div>
+    </div>
+
+    <figure class='visualFlex' id='graphs'>
+        <div class='aspect'>
+            <div class='system_name' id='system_1'>Декартова система координат</div>
+            <figure id='plot3d_1' class='subVisual'></figure>
+            <figure id='plot2d_2' class='subVisual' style="display: none"></figure>
+            <figure id='plot2d_3' class='subVisual' style="display: none"></figure>
+
+            <div id='cross_section' class='cut'>
+                <form name="formLeft" class="form-horizontal">
+                    <div class='radio-input' id='radio-left-input-1' style="display: none">
+                        <input type="radio" id="coord_x" name="coordinate">
+                        <label for="coord_x" class="radio">По x</label>
+                    </div>
+                    <div class='radio-input' id='radio-left-input-2' style="display: none">
+                        <input type="radio" id="coord_y" name="coordinate">
+                        <label for="coord_y" class="radio">По y</label>
+                    </div>
+                    <div class='radio-input' id='radio-left-input-3' style="display: none">
+                        <input type="radio" id="coord_z" name="coordinate">
+                        <label for="coord_z" class="radio">По z</label>
+                    </div>
+                    <div class='radio-range' id="radio-left-range" style="display: none">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class='aspect' id='cylyndric_system'>
+            <div class='system_name' id='system_2'>Цилиндрическая система координат</div>
+            <figure id='plot3d_2' class='subVisual'></figure>
+            <figure id='plot3d_3' class='subVisual' style="display: none"></figure>
+            <figure id='plot2d_1' class='subVisual' style="display: none"></figure>
+
+            <div id='cross_section_2' class='cut'>
+                <form name="formRight" class="form-horizontal">
+                    <div class='radio-input' id='radio-right-input-1' style="display: none">
+                        <input type="radio" id="coord_r" name="coordinate">
+                        <label id="label_coord_r" for="coord_r" class="radio">По r</label>
+                    </div>
+                    <div class='radio-input' id='radio-right-input-2' style="display: none">
+                        <input type="radio" id="coord_phi" name="coordinate">
+                        <label id="label_coord_phi" for="coord_phi" class="radio">По phi</label>
+                    </div>
+                    <div class='radio-input' id='radio-right-input-3' style="display: none">
+                        <input type="radio" id="coord_psi" name="coordinate">
+                        <label id="label_coord_psi" for="coord_psi" class="radio">По z</label>
+                    </div>
+                    <div class='radio-range' id="radio-right-range" style="display: none">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </figure>
+
+    <section class='articlePage' id='solution' style='display:none'>
+        <div id='solution-0' class="solution-text">
+            <!--				<p>-->
+            Условие: вычислить объем тела.
+            <h2><p align="center">Решение</p></h2>
+            Сделаем цилиндрическую замену координат:
+            $$x = r\cos\varphi$$
+            $$z = r\sin\varphi$$
+            $$y = y$$
+            $$ \vert J \vert = \rho$$
+            Найдём значения новых параметров:
+            $$ x=z^2+x^2 $$
+            $$ 2x=z^2+x^2 $$
+
+            $$ \cos(\varphi) < \rho < 2\cos(\varphi) $$
+            $$ x \geq |z| => -\frac{\pi}{4} \leq \varphi < \frac{\pi}{4}$$
+            $$ 0 \leq y \leq 3-z^2-x^2 => 0< y < 3-\rho^2 $$
+            Область интегрирования изменится, упростится.
+            Интеграл примет вид:
+            $$V = \int\limits_{-\frac{\pi}{4}}^{\frac{\pi}{4}} d\varphi \int\limits_{\cos(\varphi)}^{2\cos(\varphi)}
+            d\rho \int\limits_{0}^{3-\rho^2} \rho dy $$
+
+            <!--				</p>-->
+        </div>
+        <div id='solution-2' class="solution-text">
+            <p>
+                Условие: найти объем тела, ограниченного изображенными поверхностями.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем цилиндрическую замену координат:
+            $$x = r\cos\varphi$$
+            $$y = r\sin\varphi$$
+            $$z = z$$
+            $$S = \int\limits_{0}^{2}dr\int\limits_{0}^{2\pi}d\varphi\int\limits_{r}^{6-r^2}rdz =
+            \int\limits_{0}^{2}dr\int\limits_{0}^{2\pi} 6r-r^3-r^2 d\varphi = $$
+            $$= 2\pi\int\limits_{0}^{2} 6r-r^3-r^2 dr = 2\pi \left(3r^2-\frac{r^4}{4}-\frac{r^3}{3}\right)\bigg|_0^2 =
+            \frac{61}{3}$$
+
+            </p>
+        </div>
+        <div id='solution-3' class="solution-text">
+            <p>
+                Условие: найти объем тела, ограниченного изображенными поверхностями.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем цилиндрическую замену координат:
+            $$x = r\cos\varphi$$
+            $$y = r\sin\varphi$$
+            $$z = z$$
+            $$S = \int\limits_{0}^{a}dr\int\limits_{0}^{2\pi}d\varphi\int\limits_{r}^{\sqrt{a^2-r^2}+a}rdz =
+            \int\limits_{0}^{2}dr\int\limits_{0}^{2\pi} r(\sqrt{a^2-r^2}+a -r) d\varphi = $$
+            $$= 2\pi\int\limits_{0}^{a} r\sqrt{a^2-r^2}+ar -r^2 dr =
+            \pi\int\limits_{0}^{a} \sqrt{a^2-r^2}dr^2 + 2\pi\frac{ar^2}{2}\bigg|_0^{a} - 2\pi\frac{r^3}{3}\bigg|_0^{a}
+            =$$
+            $$= -\frac{2\pi}{3}(a^2-r^2)^{3/2}\bigg|_0^a+
+            2\pi\frac{a^3}{2}-2\pi\frac{a^3}{3} = \pi a^3(\frac{2}{3}+1-\frac{2}{3}) = \pi a^3$$
+            </p>
+        </div>
+        <div id='solution-4' class="solution-text">
+            <p>
+                Условие: найти объем тела, ограниченного изображенными поверхностями.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем цилиндрическую замену координат:
+            $$x = r\cos\varphi$$
+            $$y = r\sin\varphi$$
+            $$z = z$$
+            $$S =
+            \int\limits_{0}^{2\pi}d\varphi\int\limits_{0}^{\frac{a}{\sqrt{2}}}dr\int\limits_{\sqrt{a^2-r^2}}^{\sqrt{b^2-r^2}}rdz
+            +
+            \int\limits_{0}^{2\pi}d\varphi\int\limits_{\frac{a}{\sqrt{2}}}^{\frac{b}{\sqrt{2}}}dr\int\limits_{r}^{\sqrt{b^2-r^2}}rdz
+            = $$
+            $$ =
+            \frac{1}{2}\int\limits_{0}^{2\pi}d\varphi\int\limits_{0}^{\frac{a}{\sqrt{2}}}({\sqrt{b^2-r^2}}-{\sqrt{a^2-r^2}})dr^2
+            +
+            \int\limits_{0}^{2\pi}d\varphi\int\limits_{\frac{a}{\sqrt{2}}}^{\frac{b}{\sqrt{2}}}(\sqrt{b^2-r^2}-r)rdr =
+            $$
+            $$ =
+            \frac{1}{2}\int\limits_{0}^{2\pi}\frac{2(a^2-r^2)^{3/2}}{3}-\frac{2(b^2-r^2)^{3/2}}{3}\bigg|_{0}^{\frac{a}{\sqrt{2}}}
+            +
+            \int\limits_{0}^{2\pi}-\frac{2(b^2-r^2)^{3/2}}{6}-\frac{r^2}{2}\bigg|_{\frac{a}{\sqrt{2}}}^{\frac{b}{\sqrt{2}}}
+            = $$
+            $$ = 2\pi
+            \left(\frac{b^3}{3}+\frac{a^3}{6\sqrt{2}}-\frac{a^3}{3}-\frac{\left(2b^2-a^2\right)\sqrt{2b^2-a^2}}{6\sqrt{2}}\right)
+            +
+            \frac{\pi \left(2b^2\sqrt{2b^2-a^2}-a^2\sqrt{2b^2-a^2}+a^3-2b^3\right)}{3\sqrt{2}}$$
+            </p>
+        </div>
+        <div id='solution-1' class="solution-text">
+            <p>
+                Условие: найти объем тела, ограниченного поверхностью:
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем сферическую замену координат:
+            $$x = r\cos\varphi\sin\theta$$
+            $$y = r\sin\varphi\sin\theta$$
+            $$z = r\cos\theta$$
+            $$V = 4\int\limits_{0}^{\pi/2}d\varphi \int\limits_{0}^{\pi/2}d\theta
+            \int\limits_{0}^{a(\cos\varphi\sin\varphi\sin^2\theta\cos\theta)^{1/3}}r^2\sin\theta dr =
+            4\int\limits_{0}^{\pi/2}d\varphi \int\limits_{0}^{\pi/2}d\theta \frac{r^3}{3}\sin\theta
+            \bigg|_{0}^{a(\cos\varphi\sin\varphi\sin^2\theta\cos\theta)^{1/3}} = $$
+            $$= 4\int\limits_{0}^{\pi/2}d\varphi
+            \int\limits_{0}^{\pi/2}\frac{a\cos\varphi\sin\varphi\sin^2\theta\cos\theta}{3}\sin\theta d\theta =
+            4a\int\limits_{0}^{\pi/2}d\varphi
+            \int\limits_{0}^{\pi/2}\frac{\cos\varphi\sin\varphi}{3}\sin^3\theta\cos\theta d\theta = $$
+            $$= 4a\int\limits_{0}^{\pi/2}d\varphi \frac{\cos\varphi\sin\varphi}{3}
+            \left(\dfrac{\sin^4x}{4}\right) \bigg|_{0}^{\pi/2} =
+            \frac{4}{3}\frac{1}{4}a\int\limits_{0}^{\pi/2} \cos\varphi\sin\varphi d\varphi=
+            \frac{4}{3}\frac{1}{4}\frac{\pi}{4}a = \frac{\pi a}{12}$$
+            </p>
+        </div>
+        <div id='solution-5' class="solution-text">
+            <p>
+                Условие: найти объем тела, ограниченного поверхностью:
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем сферическую замену координат:
+            $$x = r\cos\varphi\sin\theta$$
+            $$y = r\sin\varphi\sin\theta$$
+            $$z = r\cos\theta$$
+            $$V =
+            \int\limits_{0}^{2\pi}d\varphi\int\limits_{0}^{\pi}d\theta\int\limits_{0}^{\cos^{2n-1}\varphi\sin^{2n-1}\theta}r^2\sin\theta
+            dr =$$
+            $$= \int\limits_{0}^{2\pi}d\varphi\int\limits_{0}^{\pi}
+            \frac{(\cos^{2n-1}\varphi\sin^{2n-1}\theta)^3}{3}\sin\theta d\theta =$$
+            $$= \int\limits_{0}^{2\pi}\frac{\cos^{6n-3}\varphi}{3}d\varphi \int\limits_{0}^{\pi}\sin^{6n-2}\theta
+            d\theta$$
+            </p>
+        </div>
+        <div id='solution-6' class="solution-text">
+            <p>
+                Условие: найти объем тела, ограниченного изображенными поверхностями.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем цилиндрическую замену координат:
+            $$x = r\cos\varphi$$
+            $$y = r\sin\varphi$$
+            $$z = z$$
+            $$V = \int\limits_{\pi/4}^{\arctan(2)}d\varphi \int\limits_{0}^{h}dr \int\limits_{r}^{\min(2r, h)}r dz = $$
+            $$= \int\limits_{\pi/4}^{\arctan(2)}d\varphi \int\limits_{0}^{h/2}dr \int\limits_{r}^{\min(2r, h)}r dz +
+            \int\limits_{\pi/4}^{\arctan(2)}d\varphi \int\limits_{h/2}^{h}dr \int\limits_{r}^{\min(2r, h)}r dz = $$
+            $$ = \int\limits_{\pi/4}^{\arctan(2)}d\varphi \int\limits_{0}^{h/2}dr \int\limits_{r}^{2r}r dz +
+            \int\limits_{\pi/4}^{\arctan(2)}d\varphi \int\limits_{h/2}^{h}dr \int\limits_{r}^{h}r dz = $$
+            $$= \int\limits_{\pi/4}^{\arctan(2)}d\varphi \int\limits_{0}^{h/2} r^2 dr +
+            \int\limits_{\pi/4}^{\arctan(2)}d\varphi \int\limits_{h/2}^{h} r(h-r) dr = $$
+            $$= \int\limits_{\pi/4}^{\arctan(2)}d\varphi \frac{r^3}{3} \bigg|_{0}^{h/2} +
+            \int\limits_{\pi/4}^{\arctan(2)}d\varphi \frac{hr^2}{2} - \frac{r^3}{3} \bigg|_{h/2}^{h} = $$
+            $$= \int\limits_{\pi/4}^{\arctan(2)} \frac{h^3}{24} d\varphi +
+            \int\limits_{\pi/4}^{\arctan(2)}\frac{h^3}{2} - \frac{h^3}{3} - \frac{h^3}{8} + \frac{h^3}{24} d\varphi = $$
+            $$= (\arctan(2) - \pi/4) \frac{h^3}{12} + \frac{h^3}{2} - \frac{h^3}{3} - \frac{h^3}{8}$$
+            $$= (\arctan(2) - \pi/4) \frac{h^3}{8}$$
+            </p>
+        </div>
+        <div id='solution-7' class="solution-text">
+            <p>
+                Условие: найти объем тела, ограниченного изображенными поверхностями.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем сферическую замену координат:
+            $$x=\rho\cos \varphi \sin \theta $$
+            $$ y=\rho \sin \varphi \sin \theta $$
+            $$ z=\rho \cos \theta $$
+            $$ \vert J \vert = \rho^2 \sin \theta $$
+            $$ \int\limits_{0}^{\frac{\pi}{2}} \int\limits_{0}^{\frac{\pi}{2}} \int\limits_{0}^{1} \rho^5 \cos \varphi
+            \sin \varphi \sin^3 \theta \cos \theta d\rho d\theta d\varphi = \frac{1}{6} \frac{1}{2} \frac{1}{4} =
+            \frac{1}{48}$$
+            </p>
+        </div>
+    </section>
+
+
+    <div id="parameters-panel" class="panel panel-right" style='display:none'>
+        <div id='no_params' class='panel-parameter'>Нет параметров.</div>
+        <div id='params' class='panel-parameter'></div>
+        <div id='params_2' class='panel-parameter'></div>
+    </div>
+
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    </script>
+
+    <script src="js/grafar.js"></script>
+    <script src="js/additional.js"></script>
+    <script src="js/triple_integrals/triple_integrals.js"></script>
+    <script src="js/triple_integrals/triple_integrals_graphs.js"></script>
+    <script src="js/triple_integrals/triple_integrals_list_tasks.js"></script>
+    <script src="js/triple_integrals/triple_integrals_parameters.js"></script>
+    <script src="js/triple_integrals/triple_integrals_show_graphs.js"></script>
+    <script src="js/triple_integrals/triple_integrals_cross_sections.js"></script>
+</main>
+</body>
+
+</html>

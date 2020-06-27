@@ -1,0 +1,171 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VisualMath</title>
+
+    <link rel='stylesheet' href='css/eulerface_layout.css' media='screen'/>
+    <link rel='stylesheet' href='css/one_panel.css' media='screen'/>
+    <link rel='stylesheet' href='css/g_style.css' media='screen'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+</head>
+
+<body lang='ru'>
+<header id="header_">
+    <div id="header-dataList-btn" class="btn header-btn shadow-left header-btn-narrow">▼</div>
+    <div id='header-problem-1' class='problem' class="active-header">
+        <div class="formula">$ x = e^{-t}\cos t, \ y = e^{-t}\sin t $</div>
+        <div class="formula">$ z = e^{-t}, \ 0 < t < +\infty$</div>
+    </div>
+    <div id='header-problem-2' class='problem' style='display:none'>
+        <div class="formula">$ (x-y)^2=a(x+y) $</div>
+        <div class="formula">$ x^2-y^2=\frac{9}{8}z^2 $</div>
+    </div>
+    <div id='header-problem-3' class='problem' style='display:none'>
+        <div class="formula">$ x^2+y^2+z^2=a^2 $</div>
+        <div class="formula">$ \sqrt{x^2+y^2}\cosh{(\arctan\frac{y}{x})}=a $</div>
+    </div>
+    <div id="header-play" class="btn header-btn header-btn-big shadow" style="min-width: 200px">Поворот</div>
+    <div class="two_buttons">
+        <div id="header-solution" class="btn header-btn header-btn-small shadow">Решение</div>
+        <div id="header-parameters-btn" class="btn header-btn header-btn-small header-btn-small shadow">Параметры</div>
+    </div>
+</header>
+
+
+<main>
+    <div id="dataList-panel" class="panel panel-middle" style='display:none; height: auto'>
+        <ul id="dataList">
+            <li class='active'>
+                <div id='panel-problem-1' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Пространственная кривая:</div>
+                    <br>$ x = e^{-t}\cos t, $
+                    <br>$ y = e^{-t}\sin t, $
+                    <br>$ z = e^{-t}, $
+                    <br>$ 0 < t < +\infty, $
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-2' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Пространственная кривая:</div>
+                    <br>$ (x-y)^2=a(x+y) $
+                    <br>$ x^2-y^2=\frac{9}{8}z^2 $
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-3' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Пространственная кривая:</div>
+                    <br>$ x^2+y^2+z^2=a^2 $
+                    <br>$ \sqrt{x^2+y^2}\cosh{(\arctan\frac{y}{x})}=a $
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <figure class='visualFlex' id='graphs'>
+        <div class='aspect'>
+            <div class='system_name'>Декартова система координат</div>
+            <figure id='plot3d_1' class='subVisual'></figure>
+        </div>
+    </figure>
+
+    <section class='articlePage' id='solution' style='display:none'>
+        <div id='solution-1' class="solution-text">
+            <p>
+                <h2>
+            <p align="center">Решение</p></h2>
+            Длина дуги $OA$ вычисляется по формуле:
+            $$ L = \int\limits_{OA}dS$$
+            Найдем дифференциал дуги:
+            $$ dS = \sqrt{e^{-2t}(\cos{t}+\sin{t})^2+e^{-2t}(\cos t -\sin t)^2 + e^{-2t}} = $$
+            $$ = e^{-t}\sqrt{\cos^2 t + 2\sin t \cos t + \sin^2 t + \cos^2 t -2\sin t \cos t + \sin^2 t+1} = $$
+            $$ = e^{-t}\sqrt{3}$$
+            Значит, длина дуги равна:
+            $$L = \int\limits_0^{+\infty}e^{-t}\sqrt{3}dt = \sqrt{3}$$
+            </p>
+        </div>
+        <div id='solution-2' class="solution-text">
+            <p>
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем замену:
+            $$x-y =s$$
+            $$x+y=t$$
+            $$z = \frac{2\sqrt 2}{3}\sqrt{st}$$
+            Откуда:
+            $$x = \frac{s^2+as}{2a}$$
+            $$y = \frac{s^2-as}{2a}$$
+            $$z = \frac{2\sqrt2}{3\sqrt a}a\sqrt s$$
+            Длина дуги пространственной кривой от точки $O(0; 0; 0)$ до точки $A(x_0, y_0, z_0)$ равна:
+            $$ L = \int\limits_{0}^{x_0-y_0}\sqrt{\frac{(2s+a)^2}{4a^2}+\frac{(2s-a)^2}{4a^2}+\frac{2}{a}s}ds = $$
+            $$ \int\limits_{0}^{x_0-y_0}\sqrt{2\frac{s^2}{a^2}+\frac{1}{2}+\frac{2}{a}s}ds =
+            \int\limits_{0}^{x_0-y_0}\sqrt{2(\frac{s}{a}+\frac{1}{2})^2}ds = $$
+            $$ = \sqrt 2 \int\limits_{0}^{x_0-y_0}\frac{s}{a}+\frac{1}{2}ds = \frac{\sqrt 2}{2}(x_0-y_0)
+            \left(\frac{x_0-y_0}{a} +1 \right) $$
+            </p>
+        </div>
+        <div id='solution-3' class="solution-text">
+            <p>
+                <h2>
+            <p align="center">Решение</p></h2>
+            Всопользуемся сферической заменой координат:
+            $$x=a\cos\phi\cos\psi$$
+            $$y=a\sin\phi\cos\psi$$
+            $$z=a\sin\psi$$
+            Значит:
+            $$\psi = \arccos{\left(\frac{1}{\cosh\phi} \right)}$$
+            Откуда:
+            $$x = \frac{a\cos\phi}{\cosh \phi} $$
+            $$y = \frac{a\sin\phi}{\cosh \phi} $$
+            $$z = a \sqrt{1-\frac{1}{\cosh^2\phi}} = a\tanh\phi $$
+            $$\frac{dx}{d\phi}=a\frac{-\sin\phi \cosh\phi - \cos\phi\cosh\phi}{\cosh^2\phi}$$
+            $$\frac{dy}{d\phi}=a\frac{\cos\phi \cosh\phi - \sin\phi\sinh\phi}{\cosh^2\phi}$$
+            $$\frac{dz}{d\phi}=a\frac{1}{\cosh^2\phi}$$
+            Длина дуги равна:
+            $$L=\int\limits_{0}^{\arctan{\frac{y_0}{x_0}}}\frac{\sqrt{\sin^2\phi\cosh^2\phi +
+            \cos^2\phi\sinh^2\phi+\cos^2\phi\cosh^2\phi+\sin^2\phi\sinh^2\phi+1}}{\cosh^2\phi} = $$
+            $$ = \sqrt2a\int\limits_{0}^{\arctan{\frac{y_0}{x_0}}}\frac{d\phi}{\cosh^2\phi} = \sqrt2
+            a\tanh{\left(\arctan\frac{y_0}{x_0}\right)}$$
+
+            </p>
+        </div>
+
+    </section>
+
+
+    <div id="parameters-panel" class="panel panel-right" style='display:none'>
+        <div id='no_params' class='panel-parameter'>Нет параметров.</div>
+        <div id='params' class='panel-parameter'></div>
+        <div id='params_2' class='panel-parameter'></div>
+        <div id='params_3' class='panel-parameter'></div>
+        <div id='params_4' class='panel-parameter'></div>
+    </div>
+
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    </script>
+
+    <script src="js/grafar.js"></script>
+    <script src="js/additional.js"></script>
+    <script src="js/curves/curves.js"></script>
+    <script src="js/curves/curves_graphs.js"></script>
+    <script src="js/curves/curves_show_graphs.js"></script>
+    <script src="js/curves/curves_list_tasks.js"></script>
+    <script src="js/curves/curves_parameters.js"></script>
+</main>
+</body>
+
+</html>

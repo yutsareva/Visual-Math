@@ -1,0 +1,246 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VisualMath</title>
+
+    <link rel='stylesheet' href='css/eulerface_layout.css' media='screen'/>
+    <link rel='stylesheet' href='css/one_panel.css' media='screen'/>
+    <link rel='stylesheet' href='css/g_style.css' media='screen'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+</head>
+
+<body lang='ru'>
+<header id="header_">
+    <div id="header-dataList-btn" class="btn header-btn shadow-left header-btn-narrow">▼</div>
+    <div id='header-problem-1' class='problem' class="active-header">
+        <div class="formula">$ x^2+z^2=a^2 $</div>
+        <div class="formula">$ y^2+z^2=a^2 $</div>
+    </div>
+    <div id='header-problem-2' class='problem' style='display:none'>
+        <div class="formula">$ x^2+y^2+z^2=a^2 $</div>
+        <div class="formula">$ \frac{x^2}{a^2}+\frac{y^2}{b^2} = 1, \ 0 < b \leq a $</div>
+    </div>
+    <div id='header-problem-3' class='problem' style='display:none'>
+        <div class="formula">$x^2+y^2+z^2=a^2$</div>
+        <div class="formula">$x^2+y^2=\pm ax$</div>
+    </div>
+    <div id='header-problem-4' class='problem' style='display:none'>
+        <div class="formula">$ x = r\cos\varphi, \ y = r\sin\varphi, \ x = h\varphi$</div>
+        <div class="formula">$0 < r < a, \ 0 < \varphi < 2\pi$</div>
+    </div>
+    <div id='header-problem-5' class='problem' style='display:none'>
+        <div class="formula">$x = (b+a\cos\psi)\cos\varphi, \ y = (b+a\cos\psi)\sin\varphi$</div>
+        <div class="formula">$x = a\sin\psi, \ 0 < a \leq b$</div>
+    </div>
+    <div id='header-problem-6' class='problem' style='display:none'>
+        <div class="formula">$x=a\cos^4t$</div>
+        <div class="formula">$y=a\sin^4t$</div>
+    </div>
+
+    <div class="two_buttons">
+        <div id="header-confines" class="btn header-btn header-btn-small shadow">Ограничения</div>
+        <div id="header-play" class="btn header-btn header-btn-small header-btn-small shadow">Поворот</div>
+    </div>
+    <div class="two_buttons">
+        <div id="header-solution" class="btn header-btn header-btn-small shadow">Решение</div>
+        <div id="header-parameters-btn" class="btn header-btn header-btn-small header-btn-small shadow">Параметры</div>
+    </div>
+</header>
+
+
+<main>
+    <div id="dataList-panel" class="panel panel-middle" style='display:none'>
+        <ul id="dataList">
+            <li class='active'>
+                <div id='panel-problem-1' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Фигура, ограниченная цилиндрами:</div>
+                    <br>$ x^2+z^2=a^2, $
+                    <br>$ y^2+z^2=a^2, $
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-2' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Часть сферы, заключенной внутри цилиндра</div>
+                    <br>$ x^2+y^2+z^2=a^2 $
+                    <br>$ \frac{x^2}{a^2}+\frac{y^2}{b^2} = 1, \ 0 < b \leq a $
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-3' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Фигура Вивиани:</div>
+                    часть поверхности
+                    <br>$ x^2+y^2+z^2=a^2,$
+                    <br>расположенной вне цилиндров
+                    <br>$ x^2+y^2=\pm ax$
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-4' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Геликоид:</div>
+                    <br>$ x = r\cos\varphi $
+                    <br>$ y = r\sin\varphi $
+                    <br>$ x = h\varphi $
+                    <br>$ 0 < r < a $
+                    <br>$ 0 < \varphi < 2\pi $
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-5' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Тор:</div>
+                    <br>$ x = (b+a\cos\psi)\cos\varphi $
+                    <br>$ y = (b+a\cos\psi)\sin\varphi $
+                    <br>$ x = a\sin\psi $
+                    <br>$ 0 < a \leq b $
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-6' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Поверхность, полученная вращением дуги параболы:</div>
+                    <br>$ x=a\cos^4t $
+                    <br>$ y=a\sin^4t $
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <figure class='visualFlex' id='graphs'>
+        <div class='aspect'>
+            <div class='system_name'>Декартова система координат</div>
+            <figure id='plot3d_1' class='subVisual'></figure>
+        </div>
+    </figure>
+
+    <section class='articlePage' id='solution' style='display:none'>
+        <div id='solution-1' class="solution-text">
+            <p>
+                Условие: найти площадь поверхности тела.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Воспользуемся заменой координат:
+            $$x = a\cos \varphi$$
+            $$y = y$$
+            $$z = a\sin\varphi$$
+            Искомая площадь равна:
+
+            $$S =
+            4a\int\limits_{0}^{a}\int\limits_{-\arcsin{\sqrt{1-\frac{y^2}{a^2}}}}^{\arcsin{\sqrt{1-\frac{y^2}{a^2}}}}y
+            d\varphi$$
+            $$=8a\int\limits_{0}^{a}y\arcsin\sqrt{1-\frac{y^2}{a^2}}dy = \left[1-\frac{y^2}{a^2}=t, dt =
+            -2\frac{y}{a^2}dy \right]=$$
+            $$= 4a^3 \int\limits_{0}^{1}\arcsin \sqrt{t}dt = \left[\sqrt{t}=u, dt = 2udu \right] =
+            8a^3\int\limits_{0}^{1}\arcsin u^2du = $$
+            $$= 8a^3 \int\limits_{0}^{1}4d\left(u\arcsin u + \sqrt{1-u^2}\right) =
+            4a^3\pi-8a^3\int\limits_{0}^{1}u\arcsin u du - 2a^3\pi = 2\pi a^3$$
+            </p>
+        </div>
+        <div id='solution-2' class="solution-text">
+            <p>
+                Условие: найти площадь части сферы, заключенной внутри цилиндра.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем сферическую замену координат:
+            $$x = a\cos\varphi\sin\psi$$
+            $$y = a\sin\varphi\cos\psi$$
+            $$z = a\sin\psi$$
+            Площадь части сферы, заключенной внутри цилиндра равна:
+            $$S = 8\int\limits_{0}^{}\frac{\pi}{2}\int\limits_{0}^{\arccos\frac{1}{\cos^2\varphi
+            +\frac{a^2}{b^2}\sin^2\varphi}}a^2\sin\psi d\psi d\varphi = $$
+            $$= 8a^2\int\limits_{0}^{\frac{\pi}{2}}1 -
+            \frac{1}{\cos^2\varphi+\frac{a^2}{b^2}\sin^2\varphi}d\varphi=8a^2\int\limits_{0}^{\frac{\pi}{2}}\frac{\sqrt{a^2-b^2}\sin\varphi
+            d\varphi}{\sqrt{a^2-(a^2-b^2)\cos^2\varphi}} = [t = \cos\varphi] =$$
+            $$= 8a^2\sqrt{a^2-b^2}\int\limits_0^1\frac{dt}{\sqrt{a^2-(a^2-b^2)t^2}} =
+            8a^2\arcsin\left(\frac{\sqrt{a^2-b^2}}{a}t\right)\bigg|_0^1 =
+            8a^2\arcsin\left(\frac{\sqrt{a^2-b^2}}{a}\right)$$
+            </p>
+        </div>
+        <div id='solution-3' class="solution-text">
+            <p>
+                <h2>
+            <p align="center">Решение</p></h2>
+            Сделаем сферическую замену координат:
+            $$x = a\cos\varphi\sin\psi$$
+            $$y = a\sin\varphi\cos\psi$$
+            $$z = a\sin\psi$$
+            $$EG-F^2=a^4\cos^2\psi$$
+            Ограничение на $\varphi$:
+            $$|\cos\varphi| \leq \cos\psi$$
+            Поэтому искомая площадь равна:
+            $$S=8\int\limits_0^{\frac{\pi}{2}}\int\limits_0^\varphi a^2\cos\psi d\psi d\varphi =
+            8a^2\int\limits_0^{\frac{\pi}{2}}\sin\varphi = 8a^2(-\cos\varphi)\bigg|_0^{\frac{\pi}{2}} = 8a^2$$
+
+            </p>
+        </div>
+        <div id='solution-4' class="solution-text">
+            <p>
+                Условие: найти площадь геликоида.
+                <h2>
+            <p align="center">Решение</p></h2>
+            $$E=\cos^2\varphi+sin^2\varphi=1$$
+            $$G = r^2\sin^2\varphi+r^2\cos^2\varphi+h^2=r^2+h^2$$
+            $$F = -r\cos\varphi \sin\varphi+r\cos\varphi\sin\varphi = 0$$
+            $$EG-F^2=r^2+h^2$$
+            Значит, площадь равна:
+            $$S = \int_0^{a}\int_0^{2\pi}\sqrt{r^2+h^2}d\varphi dr = \left[t = ln \left(\frac{a}{h} +
+            \sqrt{\frac{a^2}{h^2}+1}\right) \right] =
+            2\pi h^2\int\limits_0^{ln \left(\frac{a + \sqrt{a^2+h^2}}{h}\right)}\cosh^2 tdt=$$
+            $$=\pi h^2 ln \left(\frac{a + \sqrt{a^2+h^2}}{h}\right)+\pi h^2\frac{a}{h}\sqrt{1+\frac{a^2}{h^2}} =
+            \pi h^2 ln \left(\frac{a + \sqrt{a^2+h^2}}{h}\right)+\pi a\sqrt{a^2+h^2}$$
+            </p>
+        </div>
+
+        <div id='solution-5' class="solution-text">
+            <p>
+                Условие: найти площадь части поверхности тора, ограниченной двумя параллелями $\psi_1, \psi_2$ и двумя
+                меридианами $\varphi_1, \varphi_2$. Чему равна площадь всего тора?
+                <h2>
+            <p align="center">Решение</p></h2>
+            $$E=(b+a\cos\psi)^2$$
+            $$G = a^2$$
+            $$F=-(b+a\cos\psi)\sin\varphi(b-a\cos\psi)\cos\varphi+(b+a\cos\psi)\cos\varphi(b-a\cos\psi)\sin\varphi=0$$
+            Значит, площадь равна:
+            $$S=a\int\limits_{\varphi_1}^{\varphi_2}\int\limits_{\psi_1}^{\psi_2}(b+a\cos\psi)d\psi d\varphi =
+            a(\varphi_2-\varphi_1)(b(\psi_2-\psi_1)+a(\sin\psi_2-\sin\psi_1))$$
+            Получаем, что площадь полного тора равна $4\pi^2ab$
+            </p>
+        </div>
+
+    </section>
+
+
+    <div id="parameters-panel" class="panel panel-right" style='display:none'>
+        <div id='no_params' class='panel-parameter'>Нет параметров.</div>
+        <div id='params' class='panel-parameter'></div>
+        <div id='params_2' class='panel-parameter'></div>
+        <div id='params_3' class='panel-parameter'></div>
+        <div id='params_4' class='panel-parameter'></div>
+    </div>
+
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    </script>
+
+    <script src="js/grafar.js"></script>
+    <script src="js/additional.js"></script>
+    <script src="js/surfaces/surfaces.js"></script>
+    <script src="js/surfaces/surfaces_graphs.js"></script>
+    <script src="js/surfaces/surfaces_show_graphs.js"></script>
+    <script src="js/surfaces/surfaces_list_tasks.js"></script>
+    <script src="js/surfaces/surfaces_parameters.js"></script>
+</main>
+</body>
+
+</html>

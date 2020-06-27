@@ -1,0 +1,223 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VisualMath</title>
+
+    <link rel='stylesheet' href='css/eulerface_layout.css' media='screen'/>
+    <link rel='stylesheet' href='css/one_panel.css' media='screen'/>
+    <link rel='stylesheet' href='css/g_style.css' media='screen'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+
+</head>
+
+<body lang='ru'>
+<header id="header_">
+    <div id="header-dataList-btn" class="btn header-btn shadow-left header-btn-narrow">▼</div>
+    <div id='header-problem-0' class='problem' class="active-header">
+        <div class="formula">$z = c\sin\left(\pi\left(\frac{x^2}{a^2} + \frac{y^2}{b^2}\right)\right),\ z = 0$</div>
+        <div class="formula">$k \leq \frac{x^2}{a^2} + \frac{y^2}{b^2} \leq k + 1,\ k \in \mathbb{N}$</div>
+    </div>
+    <div id='header-problem-1' class='problem' style='display:none'>
+        <div class="formula">$z = |x|^{3/2}+|y|^{3/2},\ x+y = 1$</div>
+        <div class="formula">$x = 0,\ y = 0,\ z = 0$</div>
+    </div>
+    <div id='header-problem-2' class='problem' style='display:none'>
+        <div class="formula"> $y^2 = 2x,\ x^2 = y$</div>
+        <div class="formula">$z = xy,\ z > 0$</div>
+    </div>
+    <div id='header-problem-3' class='problem' style='display:none'>
+        <div class="formula">$z = x^2+y^2,\ xy=a^2,\ xy=2a^2$</div>
+        <div class="formula">$y=\frac{x}{2},\ y=2x,\ z = 0$</div>
+    </div>
+    <div id='header-problem-4' class='problem' style='display:none'>
+        <div class="formula">$\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$</div>
+        <div class="formula">$\frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2}$</div>
+    </div>
+
+
+    <div class="two_buttons">
+        <div id="header-confines" class="btn header-btn header-btn-small shadow">Ограничения</div>
+        <div id="header-play" class="btn header-btn header-btn-small header-btn-small shadow">Поворот</div>
+    </div>
+    <div class="two_buttons">
+        <div id="header-solution" class="btn header-btn header-btn-small shadow">Решение</div>
+        <div id="header-parameters-btn" class="btn header-btn header-btn-small header-btn-small shadow">Параметры</div>
+    </div>
+</header>
+
+
+<main>
+    <div id="dataList-panel" class="panel panel-middle" style='display:none; height: auto'>
+        <ul id="dataList">
+            <li class='active'>
+                <div id='panel-problem-0' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br>$z = c\sin\left(\pi\left(\frac{x^2}{a^2} + \frac{y^2}{b^2}\right)\right),\ z = 0$
+                    <br>$k \leq \frac{x^2}{a^2} + \frac{y^2}{b^2} \leq k + 1,\ k \in \mathbb{N}$
+                </div>
+            </li>
+
+            <li class=''>
+                <div id='panel-problem-1' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br>$z = |x|^{3/2}+|y|^{3/2},\ x+y = 1$
+                    <br>$x = 0,\ y = 0,\ z = 0$
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-2' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br>$y^2 = 2x,\ x^2 = y$
+                    <br>$z = xy,\ z > 0$
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-3' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Тело, ограниченное поверхностями:</div>
+                    <br>$z = x^2+y^2,\ xy=a^2,\ xy=2a^2$
+                    <br>$y=\frac{x}{2},\ y=2x,\ z = 0$
+                </div>
+            </li>
+            <li class=''>
+                <div id='panel-problem-4' class='panel-problem' style="line-height: 1em; text-align:center">
+                    <div align="left">Тело, ограниченное эллипсоидом и конусом:</div>
+                    <br>$\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$
+                    <br>$\frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2}$
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <figure class='visualFlex' id='graphs'>
+        <div class='aspect'>
+            <div class='system_name'>Декартова система координат</div>
+            <figure id='plot3d_1' class='subVisual'></figure>
+        </div>
+    </figure>
+
+    <section class='articlePage' id='solution' style='display:none'>
+        <div id='solution-0' class="solution-text">
+            <p>
+                Условие: найти объем тела.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Воспользуемся обобщенными полярными координатами.
+            $$x = ar\cos\varphi$$
+            $$y = br\sin\varphi$$
+            $$J = abr$$
+            $$V = \int\limits_{0}^{2\pi}d\varphi \int\limits_{k}^{k+1}dr \int\limits_{0}^{c\sin r\pi}abr dz = $$
+            $$ = abc\int\limits_{0}^{2\pi}d\varphi \int\limits_{k}^{k+1}r\sin r\pi dr = $$
+            $$ = -abc\int\limits_{0}^{2\pi}d\varphi \frac{r\cos(\pi r)}{\pi} \bigg|_{k}^{k+1} +
+            abc\int\limits_{0}^{2\pi}d\varphi \int\limits_{k}^{k+1}\frac{\cos(\pi r)}{\pi} dr = $$
+            $$ = -abc\int\limits_{0}^{2\pi}d\varphi \frac{sin(\pi r)- \pi r \cos(\pi r)}{\pi^2} \bigg|_{k}^{k+1}= $$
+            $$ = 2\pi abc \frac{sin(\pi r)- \pi r \cos(\pi r)}{\pi^2} \bigg|_{k}^{k+1}= 2abc(2k + 1)$$
+            </p>
+        </div>
+        <div id='solution-1' class="solution-text">
+            <p>
+                Условие: найти объем тела.
+                <h2>
+            <p align="center">Решение</p></h2>
+
+            $$V = \int\limits_{0}^{1}dx\int\limits_{0}^{1-x}dy\int\limits_{0}^{x^{3/2}+y^{3/2}} dz =
+            \int\limits_{0}^{1}dx\int\limits_{0}^{1-x}(x^{3/2}+y^{3/2})dy = $$
+            $$ = \int\limits_{0}^{1} x^{3/2}y+\frac{2y^{5/2}}{5}\bigg|_{0}^{1-x}dx
+            = \int\limits_{0}^{1} x^{3/2}y+\frac{2(1-x)^{5/2}}{5}dx = $$
+            $$ = \int\limits_{0}^{1} x^{3/2} - x^{5/2} +\frac{2(1-x)^{5/2}}{5}dx =
+            \frac{2x^{5/2}}{5} - \frac{2x^{7/2}}{7} - \frac{4(1-x)^{7/2}}{35} \bigg|_0^1 =
+            \frac{2}{5}-\frac{2}{7}+\frac{4}{35} = \frac{8}{35}$$
+            </p>
+        </div>
+        <div id='solution-2' class="solution-text">
+            <p>
+                Условие: найти объем тела.
+                <h2>
+            <p align="center">Решение</p></h2>
+            $$V = \int\limits_{0}^{2^{1/3}}dx \int\limits_{x^2}^{\sqrt{2x}}dy \int\limits_{0}^{xy} dz = $$
+            $$= \int\limits_{0}^{2^{1/3}}dx\int\limits_{x^2}^{\sqrt{2x}}xy dy =
+            \int\limits_{0}^{2^{1/3}}dx\frac{xy^2}{2}\bigg|_{x^2}^{\sqrt{2x}} = $$
+            $$= \int\limits_{0}^{2^{1/3}}\frac{2x^2}{2} - \frac{x^5}{2}dx = \frac{x^3}{3} - \frac{x^6}{12}
+            \bigg|_{0}^{2^{1/3}} = 2 - \frac{1}{3} = 1\frac{2}{3}$$
+            </p>
+        </div>
+        <div id='solution-3' class="solution-text">
+            <p>
+                Условие: найти объем тела.
+                <h2>
+            <p align="center">Решение</p></h2>
+            $$V = 2 \left(\int\limits_{a/ \sqrt{2}}^{a}dx \int\limits_{a^2/x}^{2x}dy \int\limits_{0}^{x^2+y^2}dz +
+            \int\limits_{a}^{a \sqrt{2}}dx \int\limits_{a^2/x}^{2a^2/x}dy \int\limits_{0}^{x^2+y^2}dz +
+            \int\limits_{a\sqrt{2}}^{2a}dx \int\limits_{x/2}^{2a^2/x}dy \int\limits_{0}^{x^2+y^2}dz\right) = $$
+            $$ = 2 \left(\int\limits_{a/ \sqrt{2}}^{a}dx \int\limits_{a^2/x}^{2x} x^2+y^2 dy + \int\limits_{a}^{a
+            \sqrt{2}}dx \int\limits_{a^2/x}^{2a^2/x} x^2+y^2 dy +
+            \int\limits_{a\sqrt{2}}^{2a}dx \int\limits_{x/2}^{2a^2/x} x^2+y^2 dy\right) = $$
+            $$ = 2 \left(\int\limits_{a/ \sqrt{2}}^{a}dx x^2+\frac{y^3}{3} \bigg|_{a^2/x}^{2x} + \int\limits_{a}^{a
+            \sqrt{2}}dx x^2+\frac{y^3}{3}\bigg|_{a^2/x}^{2a^2/x} +
+            \int\limits_{a\sqrt{2}}^{2a}dx x^2+\frac{y^3}{3} \bigg|_{x/2}^{2a^2/x}\right) = $$
+            $$ = 2 \left(\int\limits_{a/ \sqrt{2}}^{a} \frac{14}{3}x^3-xa^2-\frac{a^6}{3x^3} dx + \int\limits_{a}^{a
+            \sqrt{2}} a^2x+\frac{7a^6}{3x^3} dx +
+            \int\limits_{a\sqrt{2}}^{2a} 2a^2 x + \frac{8a^6}{3x^3}-\frac{x^3}{2} - \frac{x^3}{24} dx \right)= $$
+            $$ = 2 \left(\frac{11a^4}{24} + \frac{13a^4}{12} + \frac{17a^4}{24} \right)= \frac{108}{24}a^4 =
+            \frac{9}{2}a^4$$
+            </p>
+        </div>
+        <div id='solution-4' class="solution-text">
+            <p>
+                Условие: найти объем тела.
+                <h2>
+            <p align="center">Решение</p></h2>
+            Воспользуемся обощенными полярными координатами.
+            $$x = ar\cos\varphi$$
+            $$y = br\sin\varphi$$
+            $$J = abr$$
+            $$V = 2\int\limits_{0}^{2\pi}d\varphi \int\limits_{0}^{c/\sqrt2}dz \int\limits_{0}^{z/c}abr dr +
+            2\int\limits_{0}^{2\pi}d\varphi \int\limits_{c/\sqrt2}^{c}dz \int\limits_{0}^{\sqrt{1 - z^2/c^2}}abr dr = $$
+            $$ = 2\frac{ab}{2c^2}\left(\int\limits_{0}^{2\pi}d\varphi \int\limits_{0}^{c/\sqrt2}z^2 dz +
+            \int\limits_{0}^{2\pi}d\varphi \int\limits_{c/\sqrt2}^{c}1- z^2dz\right) = $$
+            $$ = 2\frac{2\pi ab}{2c^2} \left(\frac{c^3}{6\sqrt2} + c - c\sqrt2 - \frac{c^3}{3} +
+            \frac{c^3}{6\sqrt2}\right) = $$
+            $$ = 2\pi ab\left(\frac{c(\sqrt2-2)}{6} + \frac{1-\sqrt2}{c}\right)$$
+            </p>
+        </div>
+
+    </section>
+
+
+    <div id="parameters-panel" class="panel panel-right" style='display:none'>
+        <div id='no_params' class='panel-parameter'>Нет параметров.</div>
+        <div id='params' class='panel-parameter'></div>
+        <div id='params_2' class='panel-parameter'></div>
+        <div id='params_3' class='panel-parameter'></div>
+        <div id='params_4' class='panel-parameter'></div>
+    </div>
+
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\[", right: "\\]", display: true}
+            ]
+        });
+    </script>
+
+    <script src="js/grafar.js"></script>
+    <script src="js/additional.js"></script>
+    <script src="js/triple_integrals_one_system/triple_integrals_1.js"></script>
+    <script src="js/triple_integrals_one_system/triple_integrals_1_graphs.js"></script>
+    <script src="js/triple_integrals_one_system/triple_integrals_1_show_graphs.js"></script>
+    <script src="js/triple_integrals_one_system/triple_integrals_1_list_tasks.js"></script>
+    <script src="js/triple_integrals_one_system/triple_integrals_1_parameters.js"></script>
+</main>
+</body>
+
+</html>
