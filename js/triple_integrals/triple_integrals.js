@@ -109,12 +109,8 @@ const confines_button = document.getElementById('header-confines');
 confines_button.addEventListener('click', changeConfinesButton);
 
 function colorize(graph) {
-    // graph.glinstance.object.children[0].material.transparent = true;
-    // graph.glinstance.object.children[0].material.opacity = 0.6;
     graph.glinstance.object.children[1].material.transparent = false;
     graph.glinstance.object.children[1].material.opacity = 1;
-    // graph.glinstance.object.children[2].material.transparent = true;
-    // graph.glinstance.object.children[2].material.opacity = 0.6;
 }
 
 
@@ -123,7 +119,3 @@ pan3d_2.setAxes(['r', 'φ', 'z']);
 
 pan2d_1.clearAxes();
 pan2d_1.setAxes(['r', 'φ', 'z']);
-// colorize(pan3d);
-// pan3d.glinstance.children[1].transparent = false;
-// pan2d_1.setAxes(['r', 'z']);
-// pan2d.setAxes(grafar.setpop([Xaxis, Yaxis, Zaxis], osi));
