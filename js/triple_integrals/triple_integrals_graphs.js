@@ -2714,7 +2714,7 @@ function updateParamater6_cut_z_2() {
     grafar.constant(value).into(z6_cut_2);
 }
 
-var rangeInput6_cut_z_2 = new RangeInput(0, updateParamater6_cut_z_2, 0.5, 1, 0.01, "z");
+var rangeInput6_cut_z_2 = new RangeInput(0, updateParamater6_cut_z_2, 0, 1, 0.01, "z");
 
 
 var r6_cut = grafar.constant(1).select();
@@ -2742,7 +2742,7 @@ function updateParamater6_cut_r() {
     grafar.constant(value).into(r6_cut);
 }
 
-var rangeInput6_cut_r = new RangeInput(0, updateParamater6_cut_r, 0.5, 1, 0.01, "r");
+var rangeInput6_cut_r = new RangeInput(0, updateParamater6_cut_r, 0, 1, 0.01, "r");
 
 
 // ========================================================================= 7 =============================================================================

@@ -15,7 +15,7 @@ function animate_1() {
         f3 = f.z;
         len = Math.sqrt(f1 * f1 + f3 * f3);
         t2 = Math.atan2(f1, f3);
-        t2 += 0.015;
+        t2 += 0.008;
         f3 = len * Math.cos(t2);
         f1 = len * Math.sin(t2);
         pan3d.camera.position.set(f1, f2, f3);
