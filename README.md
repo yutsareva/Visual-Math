@@ -1,4 +1,8 @@
 # VisualMath
 
-Clone the rep and just open HTML file in browser.
-grafar build is already added - https://github.com/thoughtspile/Grafar/
+Clone the rep and open HTML file in browser.
+
+Grafar build is already added - https://github.com/thoughtspile/Grafar/
+
+
+To see the pages right now go to https://yutsareva.github.io/VisualMath/
