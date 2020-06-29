@@ -1483,6 +1483,7 @@ var graph_4_3d_cut_x = grafar.pin({
     ], color: red
 }, pan3d).hide(true);
 colorize(graph_4_3d_cut_x);
+
 var graph_4_3d_cut_x_2 = grafar.pin({
     axes: [
         grafar.map([e4_2, x4_cut, a4, b4], (e, x, a, b) => x),
@@ -1491,6 +1492,7 @@ var graph_4_3d_cut_x_2 = grafar.pin({
     ], color: red
 }, pan3d).hide(true);
 colorize(graph_4_3d_cut_x_2);
+
 var graph_4_2d_cut_x = grafar.pin({
     axes: [
         grafar.map([e4_2, x4_cut, a4, b4, e4_], (e, x, a, b, e2) => get_4_y_(e, x, a, b, e2)),
@@ -1498,6 +1500,7 @@ var graph_4_2d_cut_x = grafar.pin({
     ], color: red
 }, pan2d_1).hide(true);
 colorize(graph_4_2d_cut_x);
+
 var graph_4_2d_cut_x_2 = grafar.pin({
     axes: [
         grafar.map([e4_2, x4_cut, a4, b4, e4_], (e, x, a, b, e2) => -get_4_y_(e, x, a, b, e2)),
@@ -1512,18 +1515,21 @@ var graph_4_2d_cut_x_limit_1 = grafar.pin({
         grafar.map([phi4, x4_cut, a4, b4], (p, x, a, b) => Math.sqrt(a * a - x * x) * Math.sin(p))
     ], color: white
 }, pan2d_1).hide(true);
+
 var graph_4_2d_cut_x_limit_2 = grafar.pin({
     axes: [
         grafar.map([phi4, x4_cut, a4, b4, e4_], (p, x, a, b, e2) => Math.sqrt(b * b - x * x) * Math.cos(p)),
         grafar.map([phi4, x4_cut, a4, b4], (p, x, a, b) => Math.sqrt(b * b - x * x) * Math.sin(p))
     ], color: white
 }, pan2d_1).hide(true);
+
 var graph_4_2d_cut_x_limit_3 = grafar.pin({
     axes: [
         grafar.map([phi4, x4_cut, a4, b4, z4], (p, x, a, b, z) => Math.sqrt(Math.abs(Math.pow(Math.abs(x) + z * 3, 2) - x * x))),
         grafar.map([phi4, x4_cut, a4, b4, z4], (p, x, a, b, z) => Math.abs(x) + z * 3)
     ], color: white
 }, pan2d_1).hide(true);
+
 var graph_4_2d_cut_x_limit_4 = grafar.pin({
     axes: [
         grafar.map([phi4, x4_cut, a4, b4, z4], (p, x, a, b, z) => -Math.sqrt(Math.abs(Math.pow(Math.abs(x) + z * 3, 2) - x * x))),
@@ -1548,6 +1554,7 @@ var graph_4_3d_cut_y_ = grafar.pin({
     ], color: red
 }, pan3d).hide(true);
 colorize(graph_4_3d_cut_y_);
+
 var graph_4_3d_cut_y_2_ = grafar.pin({
     axes: [
         grafar.map([e4_2, y4_cut_, a4, b4, e4_], (e, x, a, b, e2) => -get_4_y_(e, x, a, b, e2)),
@@ -1556,6 +1563,7 @@ var graph_4_3d_cut_y_2_ = grafar.pin({
     ], color: red
 }, pan3d).hide(true);
 colorize(graph_4_3d_cut_y_2_);
+
 var graph_4_2d_cut_y_ = grafar.pin({
     axes: [
         grafar.map([e4_2, y4_cut_, a4, b4, e4_], (e, x, a, b, e2) => get_4_y_(e, x, a, b, e2)),
@@ -1563,6 +1571,7 @@ var graph_4_2d_cut_y_ = grafar.pin({
     ], color: red
 }, pan2d_1).hide(true);
 colorize(graph_4_2d_cut_y_);
+
 var graph_4_2d_cut_y_2_ = grafar.pin({
     axes: [
         grafar.map([e4_2, y4_cut_, a4, b4, e4_], (e, x, a, b, e2) => -get_4_y_(e, x, a, b, e2)),
@@ -1577,18 +1586,21 @@ var graph_4_2d_cut_y_limit_1 = grafar.pin({
         grafar.map([phi4, y4_cut_, a4, b4], (p, x, a, b) => Math.sqrt(a * a - x * x) * Math.sin(p))
     ], color: white
 }, pan2d_1).hide(true);
+
 var graph_4_2d_cut_y_limit_2 = grafar.pin({
     axes: [
         grafar.map([phi4, y4_cut_, a4, b4, e4_], (p, x, a, b, e2) => Math.sqrt(b * b - x * x) * Math.cos(p)),
         grafar.map([phi4, y4_cut_, a4, b4], (p, x, a, b) => Math.sqrt(b * b - x * x) * Math.sin(p))
     ], color: white
 }, pan2d_1).hide(true);
+
 var graph_4_2d_cut_y_limit_3 = grafar.pin({
     axes: [
         grafar.map([phi4, y4_cut_, a4, b4, z4], (p, x, a, b, z) => Math.sqrt(Math.abs(Math.pow(Math.abs(x) + z * 3, 2) - x * x))),
         grafar.map([phi4, y4_cut_, a4, b4, z4], (p, x, a, b, z) => Math.abs(x) + z * 3)
     ], color: white
 }, pan2d_1).hide(true);
+
 var graph_4_2d_cut_y_limit_4 = grafar.pin({
     axes: [
         grafar.map([phi4, y4_cut_, a4, b4, z4], (p, x, a, b, z) => -Math.sqrt(Math.abs(Math.pow(Math.abs(x) + z * 3, 2) - x * x))),
@@ -1701,6 +1713,134 @@ function updateParamater4_cut_z() {
 }
 
 var rangeInput4_cut_z = new RangeInput(0, updateParamater4_cut_z, 1 / Math.sqrt(2), 2, 0.01, "y");
+
+
+var graph_4_spherical_1 = grafar.pin({
+    axes: [
+        grafar.map([e4, a4, b4, e4_], (e, a, b, e2) => e2 * Math.PI * 2),
+        grafar.map([e4, a4, b4], (e, a, b) => e * Math.acos(1/Math.sqrt(2))),
+        grafar.map([e4, a4, b4], (e, a, b) => a)
+    ], color: color
+}, pan3d_3).hide(true);
+
+var graph_4_spherical_2 = grafar.pin({
+    axes: [
+        grafar.map([e4, a4, b4, e4_], (e, a, b, e2) => e2 * Math.PI * 2),
+        grafar.map([e4, a4, b4], (e, a, b) => e * Math.acos(1/Math.sqrt(2))),
+        grafar.map([e4, a4, b4], (e, a, b) => b)
+    ], color: color
+}, pan3d_3).hide(true);
+
+var graph_4_spherical_3 = grafar.pin({
+    axes: [
+        grafar.map([e4, a4, b4, e4_], (e, a, b, e2) => 0),
+        grafar.map([e4, a4, b4, e4_], (e, a, b, e2) => e2 * Math.acos(1/Math.sqrt(2))),
+        grafar.map([e4, a4, b4], (e, a, b) => a + e * (b - a))
+    ], color: color
+}, pan3d_3).hide(true);
+
+var graph_4_spherical_4 = grafar.pin({
+    axes: [
+        grafar.map([e4, a4, b4, e4_], (e, a, b, e2) => Math.PI * 2),
+        grafar.map([e4, a4, b4, e4_], (e, a, b, e2) => e2 * Math.acos(1/Math.sqrt(2))),
+        grafar.map([e4, a4, b4], (e, a, b) => a + e * (b - a))
+    ], color: color
+}, pan3d_3).hide(true);
+
+var graph_4_spherical_5 = grafar.pin({
+    axes: [
+        grafar.map([e4, a4, b4, e4_], (e, a, b, e2) => e2 * Math.PI * 2),
+        grafar.map([e4, a4, b4], (e, a, b) => Math.acos(1/Math.sqrt(2))),
+        grafar.map([e4, a4, b4], (e, a, b) => a + e * (b - a))
+    ], color: color
+}, pan3d_3).hide(true);
+
+var graph_4_spherical_6 = grafar.pin({
+    axes: [
+        grafar.map([e4, a4, b4, e4_], (e, a, b, e2) => e2 * Math.PI * 2),
+        grafar.map([e4, a4, b4], (e, a, b) => 0),
+        grafar.map([e4, a4, b4], (e, a, b) => a + e * (b - a))
+    ], color: color
+}, pan3d_3).hide(true);
+
+var r4_cut_spher = grafar.constant(1).select();
+var graph_4_3d_cut_spher_r = grafar.pin({
+    axes: [
+        grafar.map([e4, r4_cut_spher, e4_], (e, r, e2) => e2 * Math.PI * 2),
+        grafar.map([e4, r4_cut_spher, e4_], (e, r, e2) => e * Math.acos(1/Math.sqrt(2))),
+        grafar.map([e4, r4_cut_spher, e4_, a4, b4], (e, r, e2, a, b) => Math.min(Math.max(r, a), b))
+    ], color: red
+}, pan3d_3).hide(true);
+colorize(graph_4_3d_cut_spher_r);
+
+var graph_4_2d_cut_spher_r = grafar.pin({
+    axes: [
+        grafar.map([e4, r4_cut_spher, e4_], (e, r, e2) => e2 * Math.PI * 2),
+        grafar.map([e4, r4_cut_spher, e4_], (e, r, e2) => e * Math.acos(1/Math.sqrt(2))),
+    ], color: red
+}, pan2d_3).hide(true);
+colorize(graph_4_2d_cut_spher_r);
+
+function updateParamater4_cut_spher_r() {
+    var value = rangeInput4_cut_spher_r.val;
+    grafar.constant(value).into(r4_cut_spher);
+}
+
+var rangeInput4_cut_spher_r = new RangeInput(1, updateParamater4_cut_spher_r, 1, 2, 0.01, "r");
+
+
+var phi4_cut_spher = grafar.constant(1).select();
+var graph_4_3d_cut_spher_phi = grafar.pin({
+    axes: [
+        grafar.map([e4, phi4_cut_spher, e4_], (e, p, e2) => e2 * Math.PI * 2),
+        grafar.map([e4, phi4_cut_spher, e4_], (e, p, e2) => p),
+        grafar.map([e4, phi4_cut_spher, e4_, a4, b4], (e, p, e2, a, b) => a + e * (b - a))
+    ], color: red
+}, pan3d_3).hide(true);
+colorize(graph_4_3d_cut_spher_phi);
+
+var graph_4_2d_cut_spher_phi = grafar.pin({
+    axes: [
+        grafar.map([e4, phi4_cut_spher, e4_], (e, r, e2) => e2 * Math.PI * 2),
+        grafar.map([e4, phi4_cut_spher, e4_, a4, b4], (e, p, e2, a, b) => a + e * (b - a)),
+    ], color: red
+}, pan2d_3).hide(true);
+colorize(graph_4_2d_cut_spher_phi);
+
+function updateParamater4_cut_spher_phi() {
+    var value = rangeInput4_cut_spher_phi.val;
+    grafar.constant(value).into(phi4_cut_spher);
+}
+
+var rangeInput4_cut_spher_phi = new RangeInput(1, updateParamater4_cut_spher_phi, 0, Math.acos(1/Math.sqrt(2)), 0.01, "φ");
+
+
+var p4_cut_spher = grafar.constant(1).select();
+var graph_4_3d_cut_spher_p = grafar.pin({
+    axes: [
+        grafar.map([e4, p4_cut_spher, e4_], (e, p, e2) => p),
+        grafar.map([e4, p4_cut_spher, e4_], (e, p, e2) => e * Math.acos(1/Math.sqrt(2))),
+        grafar.map([e4, p4_cut_spher, e4_, a4, b4], (e, p, e2, a, b) => a + e2 * (b - a))
+    ], color: red
+}, pan3d_3).hide(true);
+colorize(graph_4_3d_cut_spher_p);
+
+var graph_4_2d_cut_spher_p = grafar.pin({
+    axes: [
+        grafar.map([e4, p4_cut_spher, e4_], (e, r, e2) => e * Math.acos(1/Math.sqrt(2))),
+        grafar.map([e4, p4_cut_spher, e4_, a4, b4], (e, p, e2, a, b) => a + e2 * (b - a)),
+    ], color: red
+}, pan2d_3).hide(true);
+colorize(graph_4_2d_cut_spher_p);
+
+function updateParamater4_cut_spher_p() {
+    var value = rangeInput4_cut_spher_p.val;
+    grafar.constant(value).into(p4_cut_spher);
+}
+
+var rangeInput4_cut_spher_p = new RangeInput(1, updateParamater4_cut_spher_p, 0, Math.PI * 2, 0.01, "θ");
+
+
 // ==================================================================  1  =======================================================================
 
 var x1 = grafar.range(-2.5, 2.5, 40).select();

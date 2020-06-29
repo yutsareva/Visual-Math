@@ -126,7 +126,8 @@ var graphs = [
     },
     {
         id: '4',
-        graph: [graph_4_1, graph_4_2, graph_4_3, graph_4_4, graph_4_5, graph_4_6, graph_4_7, graph_4_8, graph_4_9, graph_4_10, graph_4_11],
+        graph: [graph_4_1, graph_4_2, graph_4_3, graph_4_4, graph_4_5, graph_4_6, graph_4_7, graph_4_8, graph_4_9, graph_4_10, graph_4_11,
+            graph_4_spherical_1, graph_4_spherical_2, graph_4_spherical_3, graph_4_spherical_4, graph_4_spherical_5, graph_4_spherical_6],
         show_figures: showFigures4,
         rangeInput: rangeInput4,
         rangeInput_2: rangeInput4_1,
@@ -136,6 +137,7 @@ var graphs = [
         pan3d_2: 0.3,
         camera_3d: [-7.5, 2.5, 4],
         pan3d: 0.3,
+        three_systems: true,
         graph_cut_x: {
             graph: [graph_4_2d_cut_x_limit_1, graph_4_2d_cut_x_limit_2, graph_4_2d_cut_x_limit_3, graph_4_2d_cut_x_limit_4, graph_4_3d_cut_x, graph_4_3d_cut_x_2, graph_4_2d_cut_x, graph_4_2d_cut_x_2],
             rangeInput: rangeInput4_cut_x,
@@ -171,6 +173,24 @@ var graphs = [
             rangeInput: rangeInput4_cut_y,
             update_parameter: updateParamater4_cut_y,
             name: "z"
+        },
+        graph_cut_third_3: {
+            graph: [graph_4_3d_cut_spher_r, graph_4_2d_cut_spher_r],
+            rangeInput: rangeInput4_cut_spher_r,
+            update_parameter: updateParamater4_cut_spher_r,
+            name: "r"
+        },
+        graph_cut_third_2: {
+            graph: [graph_4_3d_cut_spher_phi, graph_4_2d_cut_spher_phi],
+            rangeInput: rangeInput4_cut_spher_phi,
+            update_parameter: updateParamater4_cut_spher_phi,
+            name: "φ"
+        },
+        graph_cut_third_1: {
+            graph: [graph_4_3d_cut_spher_p, graph_4_2d_cut_spher_p],
+            rangeInput: rangeInput4_cut_spher_p,
+            update_parameter: updateParamater4_cut_spher_p,
+            name: "θ"
         },
     },
     {
